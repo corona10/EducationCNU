@@ -1,5 +1,6 @@
-package com.riotgames.education.cnu.example.refactoring;
+package com.riotgames.education.cnu.example.email.v1;
 
+import com.riotgames.education.cnu.example.email.version1.EmailService;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
@@ -8,14 +9,13 @@ import static org.junit.Assert.assertTrue;
  * Created by dachoi on 2017-04-09.
  */
 public class EmailServiceTest {
-
     @Test
     public void testSendEmailSuccessFullyWhenServerIsKorea() {
         String targetEmail = "wow@riotgames.com";
-        String userName = "test";
         String region = "Korea";
+
         EmailService emailService = new EmailService();
-        boolean result = emailService.sendEmail(targetEmail, "TEXT", userName, region);
+        boolean result = emailService.sendEmail(targetEmail, "TEXT", region);
         assertTrue(result);
     }
 }
