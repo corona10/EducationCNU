@@ -12,10 +12,10 @@ public class EmailServiceTest {
     @Test
     public void testSendEmailSuccessFullyWhenServerIsKorea() {
         String targetEmail = "wow@riotgames.com";
-        String userName = "test";
         String region = "Korea";
+
         EmailService emailService = new EmailService();
-        boolean result = emailService.sendEmail(targetEmail, "TEXT", userName, region);
+        boolean result = emailService.sendEmail(targetEmail, "TEXT", region);
         assertTrue(result);
     }
 }

@@ -11,11 +11,11 @@ public class EmailManager {
     private static Map<String,String> servers = new HashMap<>();
 
     static {
-        servers.put("Korea", "korea.com");
-        servers.put("USA", "usa.com");
+        servers.put("Korea", "@korea.com");
+        servers.put("USA", "@usa.com");
     }
 
-    public static String getAvailableEmailServerLocation(String region) {
+    public static String getHost(String region) {
         return servers.get(region);
     }
 }
