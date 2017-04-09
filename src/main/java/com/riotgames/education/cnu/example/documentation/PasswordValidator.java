@@ -4,17 +4,20 @@ public class PasswordValidator {
 
     private final int minDigits;
     private final int minLength;
+    private final int maxLength;
 
-    public PasswordValidator(int minLength, int minDigits) {
+    public PasswordValidator(int minLength, int maxLength, int minDigits) {
         if (minLength < 0) {
             throw new IllegalArgumentException("Password Validator min password length cannot be a negative number");
         }
+
         this.minLength = minLength;
         this.minDigits = minDigits;
+        this.maxLength = maxLength;
     }
 
     public boolean validate(String password) {
-        return password.length() >= minLength && hasValidDigitCount(password);
+        return password.length() >= minLength && password.length() <= maxLength && hasValidDigitCount(password);
     }
 
     private boolean hasValidDigitCount(String password) {
