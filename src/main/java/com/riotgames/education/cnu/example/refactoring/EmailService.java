@@ -13,15 +13,14 @@ public class EmailService {
             if (userName.startsWith(reservedName)) {
                 return false;
             }
-            sendEmail(targetEmail, text);
+            sendEmail(targetEmail, text, emailServerLocation);
             return true;
         } else {
             return false;
         }
     }
 
-    private void sendEmail(String targetEmail, String text) {
-        // send email!
-        System.out.println("SENT MAIL!!! to " + targetEmail + "with contents = " + text);
+    private void sendEmail(String targetEmail, String text, String emailServerLocation) {
+        // send email
     }
 }
