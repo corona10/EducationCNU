@@ -7,17 +7,13 @@ public class EmailService {
 
     private String reservedName = "riot";
 
-    public boolean sendEmail (String targetEmail, String text, String userName, String region) {
-        String emailServerLocation = EmailManager.getAvailableEmailServerLocation(region);
-        if (emailServerLocation != null) {
-            if (userName.startsWith(reservedName)) {
-                return false;
-            }
-            sendEmail(targetEmail, text);
-            return true;
-        } else {
+    public boolean sendEmailAdvanced(String targetEmail, String text, String userName, String emailServerLocation) {
+        if (userName.startsWith(reservedName)) {
             return false;
         }
+
+        sendEmail(targetEmail, text);
+        return true;
     }
 
     private void sendEmail(String targetEmail, String text) {

@@ -2,6 +2,7 @@ package com.riotgames.education.cnu.example.refactoring;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -10,12 +11,24 @@ import static org.junit.Assert.assertTrue;
 public class EmailServiceTest {
 
     @Test
-    public void testSendEmailSuccessFullyWhenServerIsKorea() {
+    public void testSendEmailAdvancedNormalUserName_shouldSucceed() {
         String targetEmail = "wow@riotgames.com";
         String userName = "test";
-        String region = "Korea";
+        String serverLocation = "korea.com";
+
         EmailService emailService = new EmailService();
-        boolean result = emailService.sendEmail(targetEmail, "TEXT", userName, region);
+        boolean result = emailService.sendEmailAdvanced(targetEmail, "text", userName, serverLocation);
         assertTrue(result);
+    }
+
+    @Test
+    public void testSendEmailAdvancedRiotUserName_shouldFail() {
+        String targetEmail = "wow@riotgames.com";
+        String userName = "riot_rik";
+        String serverLocation = "korea.com";
+
+        EmailService emailService = new EmailService();
+        boolean result = emailService.sendEmailAdvanced(targetEmail, "text", userName, serverLocation);
+        assertFalse(result);
     }
 }
